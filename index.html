@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Application Tracker</title>
+
+  <!-- link of daisy and tailwind-->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet"/>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <!--link of font awsome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+
+<body class="bg-base-200">
+
+<div class="max-w-6xl mx-auto p-4 md:p-8">
+
+<h1 class="text-3xl font-bold mb-6">
+Job Application Tracker
+</h1>
+
+<!-- Dashboard -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+
+<div class="card bg-base-100 shadow">
+<div class="card-body">
+<h2 class="text-sm text-gray-500">Total</h2>
+<p id="totalCount" class="text-2xl font-bold">0</p>
+</div>
+</div>
+
+<div class="card bg-base-100 shadow">
+<div class="card-body">
+<h2 class="text-sm text-gray-500">Interview</h2>
+<p id="interviewCount" class="text-2xl font-bold text-green-600">0</p>
+</div>
+</div>
+
+<div class="card bg-base-100 shadow">
+<div class="card-body">
+<h2 class="text-sm text-gray-500">Rejected</h2>
+<p id="rejectedCount" class="text-2xl font-bold text-red-600">0</p>
+</div>
+</div>
+
+</div>
+
+
+<!-- Jobs Section -->
+<div class="bg-base-100 p-4 rounded shadow">
+
+<div class="flex justify-between mb-3">
+<h2 class="text-xl font-bold">Available Jobs</h2>
+<span id="tabCount">0 jobs</span>
+</div>
+
+<div class="tabs tabs-box mb-4 w-fit">
+
+<button class="tab tab-active" onclick="changeTab('all')">All</button>
+
+<button class="tab" onclick="changeTab('interview')">Interview</button>
+
+<button class="tab" onclick="changeTab('rejected')">Rejected</button>
+
+</div>
+
+
+<!--all cards section is starting from here-->
+
+<div id="jobsContainer" class="space-y-4">
+
+<!-- CARD 1-->
+<div class="card bg-base-200 job-card" data-status="none">
+
+<div class="card-body">
+
+<div class="flex justify-between">
+
+<div>
+
+<h2 class="font-bold text-lg">Mobile First Corp</h2>
+
+<p class="text-sm text-gray-500">
+React Native Developer
+</p>
+
+<p class="text-sm">
+Remote • Full-time • $110,000 - $175,000
+</p>
+
+<span class="badge badge-info status-badge">
+NOT APPLIED
+</span>
+
+</div>
+
+<button onclick="deleteJob(this)" class="btn btn-error btn-sm btn-circle"><i class="fa-solid fa-xmark"></i></button>
+
+</div>
+
+<p class="text-sm">
+Build cross-platform mobile applications using React Native.
+</p>
+
+<div class="flex gap-2 mt-3">
+
+<button onclick="setStatus(this,'interview')" class="btn btn-outline btn-sm interview-btn">
+Interview
+</button>
+
+<button onclick="setStatus(this,'rejected')" class="btn btn-outline btn-sm rejected-btn">
+Rejected
+</button>
+
+</div>
+
+</div>
+</div>
+
+
+<!-- COPY THIS CARD AND CHANGE DATA -->
+<!--card 2-->
+<div class="card bg-base-200 job-card" data-status="none">
+
+<div class="card-body">
+
+<div class="flex justify-between">
+
+<div>
+
+<h2 class="font-bold text-lg">WebFlow Agency</h2>
+
+<p class="text-sm text-gray-500">
+Web Designer & Developer
+</p>
+
+<p class="text-sm">
+Los Angeles • Part-time • $60,000 - $120,000
+</p>
+
+<span class="badge badge-info status-badge">
+NOT APPLIED
+</span>
+
+</div>
+
+<button onclick="deleteJob(this)" class="btn btn-error btn-sm btn-circle"><i class="fa-solid fa-xmark"></i></button>
+
+</div>
+
+<p class="text-sm">
+Create modern websites for high-profile clients.
+</p>
+
+<div class="flex gap-2 mt-3">
+
+<button onclick="setStatus(this,'interview')" class="btn btn-outline btn-sm interview-btn">
+Interview
+</button>
+
+<button onclick="setStatus(this,'rejected')" class="btn btn-outline btn-sm rejected-btn">
+Rejected
+</button>
+
+</div>
+
+</div>
+</div>
+
+<!--card 3-->
+<div class="card bg-base-200 job-card" data-status="none">
+
+<div class="card-body">
+
+<div class="flex justify-between">
+
+<div>
+
+<h2 class="font-bold text-lg">WebFlow Agency</h2>
+
+<p class="text-sm text-gray-500">
+Web Designer & Developer
+</p>
+
+<p class="text-sm">
+Los Angeles • Part-time • $60,000 - $120,000
+</p>
+
+<span class="badge badge-info status-badge">
+NOT APPLIED
+</span>
+
+</div>
+
+<button onclick="deleteJob(this)" class="btn btn-error btn-sm btn-circle"><i class="fa-solid fa-xmark"></i></button>
+
+</div>
+
+<p class="text-sm">
+Create modern websites for high-profile clients.
+</p>
+
+<div class="flex gap-2 mt-3">
+
+<button onclick="setStatus(this,'interview')" class="btn btn-outline btn-sm interview-btn">
+Interview
+</button>
+
+<button onclick="setStatus(this,'rejected')" class="btn btn-outline btn-sm rejected-btn">
+Rejected
+</button>
+
+</div>
+
+</div>
+</div>
+
+<!--card 4-->
+<div class="card bg-base-200 job-card" data-status="none">
+
+<div class="card-body">
+
+<div class="flex justify-between">
+
+<div>
+
+<h2 class="font-bold text-lg">WebFlow Agency</h2>
+
+<p class="text-sm text-gray-500">
+Web Designer & Developer
+</p>
+
+<p class="text-sm">
+Los Angeles • Part-time • $60,000 - $120,000
+</p>
+
+<span class="badge badge-info status-badge">
+NOT APPLIED
+</span>
+
+</div>
+
+<button onclick="deleteJob(this)" class="btn btn-error btn-sm btn-circle"><i class="fa-solid fa-xmark"></i></button>
+
+</div>
+
+<p class="text-sm">
+Create modern websites for high-profile clients.
+</p>
+
+<div class="flex gap-2 mt-3">
+
+<button onclick="setStatus(this,'interview')" class="btn btn-outline btn-sm interview-btn">
+Interview
+</button>
+
+<button onclick="setStatus(this,'rejected')" class="btn btn-outline btn-sm rejected-btn">
+Rejected
+</button>
+
+</div>
+
+</div>
+</div>
+
+<!--card 5-->
+<div class="card bg-base-200 job-card" data-status="none">
+
+<div class="card-body">
+
+<div class="flex justify-between">
+
+<div>
+
+<h2 class="font-bold text-lg">WebFlow Agency</h2>
+
+<p class="text-sm text-gray-500">
+Web Designer & Developer
+</p>
+
+<p class="text-sm">
+Los Angeles • Part-time • $60,000 - $120,000
+</p>
+
+<span class="badge badge-info status-badge">
+NOT APPLIED
+</span>
+
+</div>
+
+<button onclick="deleteJob(this)" class="btn btn-error btn-sm btn-circle"><i class="fa-solid fa-xmark"></i></button>
+
+</div>
+
+<p class="text-sm">
+Create modern websites for high-profile clients.
+</p>
+
+<div class="flex gap-2 mt-3">
+
+<button onclick="setStatus(this,'interview')" class="btn btn-outline btn-sm interview-btn">
+Interview
+</button>
+
+<button onclick="setStatus(this,'rejected')" class="btn btn-outline btn-sm rejected-btn">
+Rejected
+</button>
+
+</div>
+
+</div>
+</div>
+
+<!--card 6-->
+<div class="card bg-base-200 job-card" data-status="none">
+
+<div class="card-body">
+
+<div class="flex justify-between">
+
+<div>
+
+<h2 class="font-bold text-lg">WebFlow Agency</h2>
+
+<p class="text-sm text-gray-500">
+Web Designer & Developer
+</p>
+
+<p class="text-sm">
+Los Angeles • Part-time • $60,000 - $120,000
+</p>
+
+<span class="badge badge-info status-badge">
+NOT APPLIED
+</span>
+
+</div>
+
+<button onclick="deleteJob(this)" class="btn btn-error btn-sm btn-circle"><i class="fa-solid fa-xmark"></i></button>
+
+</div>
+
+<p class="text-sm">
+Create modern websites for high-profile clients.
+</p>
+
+<div class="flex gap-2 mt-3">
+
+<button onclick="setStatus(this,'interview')" class="btn btn-outline btn-sm interview-btn">
+Interview
+</button>
+
+<button onclick="setStatus(this,'rejected')" class="btn btn-outline btn-sm rejected-btn">
+Rejected
+</button>
+
+</div>
+
+</div>
+</div>
+
+<!--card 7  -->
+<div class="card bg-base-200 job-card" data-status="none">
+
+<div class="card-body">
+
+<div class="flex justify-between">
+
+<div>
+
+<h2 class="font-bold text-lg">WebFlow Agency</h2>
+
+<p class="text-sm text-gray-500">
+Web Designer & Developer
+</p>
+
+<p class="text-sm">
+Los Angeles • Part-time • $60,000 - $120,000
+</p>
+
+<span class="badge badge-info status-badge">
+NOT APPLIED
+</span>
+
+</div>
+
+<button onclick="deleteJob(this)" class="btn btn-error btn-sm btn-circle"><i class="fa-solid fa-xmark"></i></button>
+
+</div>
+
+<p class="text-sm">
+Create modern websites for high-profile clients.
+</p>
+
+<div class="flex gap-2 mt-3">
+
+<button onclick="setStatus(this,'interview')" class="btn btn-outline btn-sm interview-btn">
+Interview
+</button>
+
+<button onclick="setStatus(this,'rejected')" class="btn btn-outline btn-sm rejected-btn">
+Rejected
+</button>
+
+</div>
+
+</div>
+</div>
+
+<!--card 8  -->
+<div class="card bg-base-200 job-card" data-status="none">
+
+<div class="card-body">
+
+<div class="flex justify-between">
+
+<div>
+
+<h2 class="font-bold text-lg">WebFlow Agency</h2>
+
+<p class="text-sm text-gray-500">
+Web Designer & Developer
+</p>
+
+<p class="text-sm">
+Los Angeles • Part-time • $60,000 - $120,000
+</p>
+
+<span class="badge badge-info status-badge">
+NOT APPLIED
+</span>
+
+</div>
+
+<button onclick="deleteJob(this)" class="btn btn-error btn-sm btn-circle"><i class="fa-solid fa-xmark"></i></button>
+
+</div>
+
+<p class="text-sm">
+Create modern websites for high-profile clients.
+</p>
+
+<div class="flex gap-2 mt-3">
+
+<button onclick="setStatus(this,'interview')" class="btn btn-outline btn-sm interview-btn">
+Interview
+</button>
+
+<button onclick="setStatus(this,'rejected')" class="btn btn-outline btn-sm rejected-btn">
+Rejected
+</button>
+
+</div>
+
+</div>
+</div>
+
+</div>
+
+<!-- Empty State -->
+<div id="emptyState"
+     class="hidden flex flex-col items-center justify-center text-center py-10">
+
+  <img src="./jobs.png" alt="no job img" class="w-40 mb-3">
+
+  <h3 class="text-lg font-semibold">
+    No jobs available
+  </h3>
+
+</div>
+</div>
+
+</div>
+<script src="script.js"></script>
+</body>
+</html>
