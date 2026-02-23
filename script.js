@@ -1,9 +1,7 @@
 
-
-
 let currentTab="all";
 
-//<!-- function for update the dashboard -->
+//function for update the dashboard 
 function updateDashboard(){
 
 let cards=document.querySelectorAll(".job-card");
@@ -77,7 +75,6 @@ function changeTab(tab){
   document.activeElement.classList.add("bg-green-500");
   document.activeElement.classList.add("text-white");
 
-  // keep your previous functionality
   filterJobs();
 }
 
