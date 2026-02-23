@@ -65,11 +65,19 @@ function changeTab(tab){
 
   currentTab = tab;
 
-  document.querySelectorAll(".tab")
-    .forEach(t => t.classList.remove("tab-active"));
+  document.querySelectorAll(".tab").forEach(function(t){
 
-  document.activeElement.classList.add("tab-active");
+    t.classList.remove("tab-active");
+    t.classList.remove("bg-green-500");
+    t.classList.remove("text-white");
 
+  });
+
+  document.activeElement.classList.add("tab-active"); 
+  document.activeElement.classList.add("bg-green-500");
+  document.activeElement.classList.add("text-white");
+
+  // keep your previous functionality
   filterJobs();
 }
 
@@ -83,7 +91,7 @@ let visible=0;
 
 cards.forEach(card=>{
 
-if(currentTab==="all" || card.dataset.status===currentTab){
+if(currentTab==="all" || card.dataset.status===currentTab){ 
 
 card.style.display="block";
 visible++;
